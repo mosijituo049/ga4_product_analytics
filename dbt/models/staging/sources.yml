@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: ga4
+    description: "Raw GA4 event export"
+
+    database: ironhack-497023
+    schema: ga4_product_analytics
+
+    tables:
+      - name: events
+        description: "Unified GA4 events view"
