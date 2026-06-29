@@ -88,11 +88,21 @@ renamed AS (
             WHERE key = 'engagement_time_msec'
         ) AS engagement_time_msec,
 
-        (
+        /*(
             SELECT value.string_value
             FROM UNNEST(event_params)
             WHERE key = 'session_engaged'
-        ) AS session_engaged,
+        ) AS session_engaged,*/
+
+        CASE
+            WHEN (
+                SELECT value.string_value
+                FROM UNNEST(event_params)
+                WHERE key='session_engaged'
+            ) = '1'
+            THEN TRUE
+            ELSE FALSE
+        END AS session_engaged,
 
         ------------------------------------------------------------------
         -- Traffic

@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: "Standardized GA4 event data used as the foundation for analytics models."
+
+    columns:
+
+      - name: event_date
+        description: "Event date."
+        tests:
+          - not_null
+
+      - name: event_timestamp
+        description: "Timestamp when the event occurred."
+        tests:
+          - not_null
+
+      - name: event_name
+        description: "Name of the GA4 event."
+        tests:
+          - not_null
+
+      - name: user_pseudo_id
+        description: "Anonymous user identifier."
+        tests:
+          - not_null
+
+      - name: ga_session_id
+        description: "Unique GA4 session identifier."
+        tests:
+          - not_null
+
+      - name: ga_session_number
+        description: "Sequential session number for a user."
+
+      - name: page_location
+        description: "URL of the current page."
+
+      - name: page_title
+        description: "Title of the current page."
+
+      - name: page_referrer
+        description: "Previous page URL."
+
+      - name: entrances
+        description: "Indicates whether the page is an entrance."
+
+      - name: engagement_time_msec
+        description: "User engagement time in milliseconds."
+
+      - name: session_engaged
+        description: "Whether the session is considered engaged."
+
+      - name: session_source
+        description: "Traffic source of the session."
+
+      - name: session_medium
+        description: "Traffic medium of the session."
+
+      - name: session_campaign
+        description: "Marketing campaign."
+
+      - name: device_category
+        description: "Device category."
+
+      - name: operating_system
+        description: "Operating system."
+
+      - name: country
+        description: "User country."
+
+      - name: transaction_id
+        description: "Unique purchase transaction identifier."
+
+      - name: purchase_value
+        description: "Purchase revenue."
+
+      - name: currency
+        description: "Currency used for the purchase."
