@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_sessions
+    description: "Session-level aggregated metrics derived from GA4 events."
+
+    columns:
+
+      - name: ga_session_id
+        tests:
+          - not_null
+
+      - name: user_pseudo_id
+        tests:
+          - not_null
+
+      - name: session_start
+        tests:
+          - not_null
+
+      - name: purchased
+        description: "Whether the session ended with a purchase."
