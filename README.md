@@ -1,0 +1,1 @@
+## Checkout Abandonment Analysis and Purchase Intent Prediction in GA4
