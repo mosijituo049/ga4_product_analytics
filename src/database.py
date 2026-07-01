@@ -1,10 +1,9 @@
 # src/database.py
-
+import streamlit as st
 from google.cloud import bigquery
-
 from src.config import PROJECT_ID
 
-
+@st.cache_resource
 def get_client():
     """
     Return a BigQuery client.
