@@ -297,19 +297,14 @@ with st.container():
             value="United States"
         )
 
-        source = st.text_input(
-            "Traffic Source",
-            value="google"
-        )
-
-        medium = st.text_input(
-            "Medium",
-            value="organic"
-        )
-
-        campaign = st.text_input(
-            "Campaign",
-            value="(direct)"
+        acquisition_channel = st.selectbox(
+            "Acquisition Channel",
+            [
+                "Google",
+                "Direct",
+                "Other",
+                "Unknown"
+            ]
         )
     
 st.divider()
@@ -360,11 +355,7 @@ if st.button(
 
         "country":[country],
 
-        "session_source":[source],
-
-        "session_medium":[medium],
-
-        "session_campaign":[campaign],
+        "acquisition_channel":[acquisition_channel],
 
         "engagement_per_event":[engagement_per_event],
 
