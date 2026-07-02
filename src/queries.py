@@ -11,6 +11,13 @@ def get_dataset_overview():
     FROM `{PROJECT_ID}.{DATASET_ID}.stg_events`
     """
 
+def get_sessions():
+    return f"""
+    SELECT
+        *
+    FROM `{PROJECT_ID}.{DATASET_ID}.int_sessions`
+    """
+
 def get_event_distribution():
     return f"""
     SELECT
@@ -34,10 +41,10 @@ def get_device_distribution():
 def get_source_distribution():
     return f"""
     SELECT
-        session_source,
+        acquisition_channel,
         COUNT(*) AS sessions
-    FROM `{PROJECT_ID}.{DATASET_ID}.stg_events`
-    GROUP BY session_source
+    FROM `{PROJECT_ID}.{DATASET_ID}.mart_purchase_prediction`
+    GROUP BY acquisition_channel
     ORDER BY sessions DESC
     """
 
@@ -149,4 +156,28 @@ def get_purchase_prediction_data():
     SELECT
         *
     FROM `{PROJECT_ID}.{DATASET_ID}.mart_purchase_prediction`
+    """
+
+def get_checkout_kpis():
+    return f"""
+    SELECT
+        COUNT(*) AS checkout_sessions,
+
+        COUNTIF(purchased = TRUE) AS purchase_sessions,
+
+        COUNTIF(checkout_abandoned = TRUE) AS abandoned_sessions,
+
+        AVG(session_duration_sec) AS avg_session_duration
+
+    FROM `{PROJECT_ID}.{DATASET_ID}.int_sessions`
+    """
+
+def get_checkout_funnel():
+    return f"""
+    SELECT
+        COUNTIF(begin_checkout > 0) AS begin_checkout,
+        COUNTIF(add_shipping_info > 0) AS add_shipping,
+        COUNTIF(add_payment_info > 0) AS add_payment,
+        COUNTIF(purchased = TRUE) AS purchase
+    FROM `{PROJECT_ID}.{DATASET_ID}.int_sessions`
     """

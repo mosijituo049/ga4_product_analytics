@@ -54,9 +54,30 @@ SELECT
 
     session_source,
 
+    acquisition_channel,
+
     session_medium,
 
     session_campaign,
+
+    ------------------------------------------------------------------
+    -- Feature Engineering
+    ------------------------------------------------------------------
+
+    COALESCE(
+        SAFE_DIVIDE(total_engagement_time, total_events),
+        0
+    ) AS engagement_per_event,
+
+    COALESCE(
+        SAFE_DIVIDE(item_views, pageviews),
+        0
+    ) AS item_view_rate,
+
+    COALESCE(
+        SAFE_DIVIDE(begin_checkout, add_to_cart),
+        0
+    ) AS checkout_ratio,
 
     ------------------------------------------------------------------
     -- Label

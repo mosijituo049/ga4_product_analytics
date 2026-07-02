@@ -30,3 +30,16 @@ dbt/dbt_packages/
 
 # Environment variables
 .env
+
+
+# -----------------------------
+# Tableau
+# -----------------------------
+tableau/Files/
+tableau/*.hyper
+tableau/*.twbr
+
+tableau/*.twbx
+
+*.tmp
+*.bak

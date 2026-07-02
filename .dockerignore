@@ -29,3 +29,6 @@ dbt/dbt_packages/
 # Python cache
 .pytest_cache/
 .mypy_cache/
+
+# Tableau
+tableau/

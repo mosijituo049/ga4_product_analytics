@@ -68,6 +68,28 @@ SELECT
 
     session_source,
 
+    CASE
+
+        WHEN session_source IS NULL THEN 'Unknown'
+
+        WHEN session_source = '(data deleted)' THEN 'Unknown'
+
+        WHEN session_source = '<Other>' THEN 'Other'
+
+        WHEN LOWER(session_source) = '(direct)' THEN 'Direct'
+
+        WHEN LOWER(session_source) LIKE '%google%' THEN 'Google'
+
+        WHEN LOWER(session_source) LIKE '%youtube%' THEN 'YouTube'
+
+        WHEN LOWER(session_source) LIKE '%newsletter%' THEN 'Newsletter'
+
+        WHEN LOWER(session_source) LIKE '%partner%' THEN 'Partner'
+
+        ELSE 'Referral'
+
+    END AS acquisition_channel,
+
     session_medium,
 
     session_campaign

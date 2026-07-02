@@ -37,6 +37,16 @@ st.set_page_config(
 
 st.title("📊 GA4 Product Analytics Platform")
 
+st.markdown("""
+### Business Question
+
+**What drives checkout abandonment, and how can we identify high-intent users before they leave?**
+
+This dashboard analyses user behaviour across the purchase funnel,
+identifies key conversion bottlenecks, and applies machine learning
+to predict purchase intent.
+""")
+
 st.caption(
     """
     Monitor user behaviour, identify conversion bottlenecks,
@@ -81,9 +91,29 @@ with st.container():
 
 st.divider()
 
+st.subheader("🧭 Dashboard Guide")
+
+st.info("""
+**Dashboard Structure**
+
+📈 Funnel Analysis
+
+→ Understand where users leave the purchase journey.
+
+🛒 Checkout Analysis
+
+→ Identify checkout abandonment patterns and compare user segments.
+
+🤖 Purchase Prediction
+
+→ Predict purchase intent using a Random Forest model.
+""")
+
+st.divider()
+
 #Overview
 with st.container():
-    st.subheader("Overview")
+    st.subheader("📊 Dataset Overview")
 
     col5,col6 = st.columns(2)
 
@@ -115,24 +145,38 @@ with st.container():
     col7,col8 = st.columns(2)
 
     with col7:
+        source_top = source.head(10)
+
+        source_top = source_top.sort_values("sessions", ascending=True)
+
         fig_traffic = px.bar(
-            source,
+            source_top,
             x="sessions",
-            y="session_source",
-            orientation="h"
+            y="acquisition_channel",
+            orientation="h",
+            text="sessions"
         )
 
-        st.plotly_chart(
-            fig_traffic,
-            use_container_width=True
-        )
+        st.plotly_chart(fig_traffic, use_container_width=True)
 
     with col8:
+        country_top = (
+            country
+            .sort_values("sessions", ascending=False)
+            .head(10)
+        )
+
         fig_country = px.bar(
-            country,
+            country_top,
             x="sessions",
             y="country",
-            orientation="h"
+            orientation="h",
+            text="sessions"
+        )
+
+        fig_country.update_layout(
+            yaxis={"categoryorder": "total ascending"},
+            height=450
         )
 
         st.plotly_chart(fig_country, use_container_width=True)

@@ -42,6 +42,12 @@ def load_country_distribution():
         queries.get_country_distribution()
     )
 
+def load_sessions():
+
+    return query_to_dataframe(
+        queries.get_sessions()
+    )
+
 @st.cache_data(ttl=600,show_spinner=False)
 def load_session_summary():
 
@@ -61,6 +67,18 @@ def load_checkout_distribution():
     """Load checkout abandonment distribution."""
     return query_to_dataframe(
         queries.get_checkout_abandonment_distribution()
+    )
+
+@st.cache_data(ttl=600,show_spinner=False)
+def load_checkout_kpis():
+    return query_to_dataframe(
+        queries.get_checkout_kpis()
+    )
+
+@st.cache_data(ttl=600,show_spinner=False)
+def load_checkout_funnel():
+    return query_to_dataframe(
+        queries.get_checkout_funnel()
     )
 
 @st.cache_data(ttl=600,show_spinner=False)
