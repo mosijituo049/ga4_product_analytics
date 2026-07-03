@@ -143,11 +143,11 @@ with st.container():
 
     st.info(
         """
-    Feature importance indicates how much each feature contributes
-    to the Random Forest prediction.
+        Feature importance shows which behavioural and session-level features
+        contribute most to the prediction model.
 
-    Higher importance means the feature has greater influence on
-    purchase intent.
+        Features with higher importance have a greater influence on estimating
+        a user's purchase intent.
     """
     )
 

@@ -170,6 +170,7 @@ def get_checkout_kpis():
         AVG(session_duration_sec) AS avg_session_duration
 
     FROM `{PROJECT_ID}.{DATASET_ID}.int_sessions`
+    WHERE begin_checkout > 0
     """
 
 def get_checkout_funnel():
