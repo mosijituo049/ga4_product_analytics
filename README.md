@@ -12,11 +12,11 @@ Starting from raw Google Analytics 4 (GA4) event data, this project builds an en
 
 # 🚀 Live Demo
 
-| Resource | Link |
-|----------|------|
-| 🌐 Streamlit App | https://ga4-product-analytics-331058043654.europe-west9.run.app |
-| 📈 Tableau Dashboard | https://public.tableau.com/views/Book1_17830071008490/GA4E-commerceProductAnalytics?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link |
-| 🎥 Project Presentation | *Coming Soon* |
+## 🚀 Live Demo
+
+- 🌐 **Streamlit App:** [Open Dashboard](https://ga4-product-analytics-331058043654.europe-west9.run.app)
+- 📈 **Tableau Dashboard:** [View Dashboard](https://public.tableau.com/views/Book1_17830071008490/GA4E-commerceProductAnalytics?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+- 🎥 **Presentation:** [View Slides](https://prezi.com/view/545KkHZaM3tNWyV5iDGI/?referral_token=rRps2GlnB3FN)
 
 ---
 
